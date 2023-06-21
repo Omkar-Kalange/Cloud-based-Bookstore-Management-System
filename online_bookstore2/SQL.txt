@@ -1,0 +1,112 @@
+Create database bookstore;
+
+Use bookstore;
+
+CREATE TABLE admins (
+ firstName varchar(20),
+ lastName varchar(20),
+ emailID varchar(50) primary key,
+ pswd varchar(30),
+ mob varchar(10)
+) ;
+
+
+CREATE TABLE books (
+  title varchar(50),
+  edition int(11) DEFAULT 1,
+  author varchar(50),
+  publisher varchar(50),
+  genre varchar(15),
+  publicationYear int(11),
+  price int(11),
+PRIMARY KEY (title, edition)
+);
+
+
+CREATE TABLE customers (
+  firstName varchar(20),
+  lastName varchar(20),
+  emailID varchar(50) primary key,
+  pswd varchar(30),
+  mob varchar(10),
+  country varchar(25),
+  address varchar(100)
+);
+
+
+insert into admins VALUES('Omkar','Kalange','omkar.kalange20@vit.edu','abc','7420032194');
+
+ALTER TABLE books ADD COLUMN quantity int;
+
+ALTER TABLE books ADD COLUMN pdf_available char(1) DEFAULT 'N';
+
+INSERT INTO `books` (`title`, `edition`, `author`, `publisher`, `genre`, `publicationYear`, `price`, `quantity`, `pdf_available`) VALUES ('The Immortals of Meluha', '1', 'Amish Tripathi', 'Westland Press', 'Fantasy', '2010', '198', '12', 'N');
+
+ALTER TABLE books ADD COLUMN synopsis varchar(1500);
+
+UPDATE books set synopsis='The Immortals of Meluha is the first book of Amish Tripathi, first book of Amishverse, and also the first book of Shiva Trilogy. The story is set in the land of Meluha and starts with the arrival of the Shiva. The Meluhans believe that Shiva is their fabled saviour Neelkanth. Shiva decides to help the Meluhans in their war against the Chandravanshis, who had joined forces with a cursed Nagas; however, during his journey and the fight that ensues, Shiva learns how his choices actually reflect who he aspires to be and how they lead to dire consequences.';
+
+ALTER TABLE admins ALTER pswd SET DEFAULT '';
+
+ALTER TABLE admins DROP PRIMARY KEY;
+
+ALTER TABLE admins ADD COLUMN adminID int AUTO_INCREMENT PRIMARY KEY FIRST;
+
+ALTER TABLE books DROP PRIMARY KEY;
+
+ALTER TABLE books ADD COLUMN bookID int AUTO_INCREMENT PRIMARY KEY FIRST;
+
+ALTER TABLE customers DROP PRIMARY KEY;
+
+ALTER TABLE customers ADD COLUMN customerID int AUTO_INCREMENT PRIMARY KEY FIRST;
+
+ALTER TABLE books change pdf_available ebook_available char(1) DEFAULT 'N';
+
+ALTER TABLE books change price book_price int;
+
+ALTER TABLE books ADD COLUMN ebook_price int AFTER ebook_available;
+
+CREATE TABLE cart (custID int NOT null, bookID int NOT null);
+
+ALTER TABLE cart ADD PRIMARY KEY (custID,bookID);
+
+ALTER TABLE books ADD UNIQUE KEY (title,edition);
+
+ALTER TABLE admins ADD UNIQUE KEY (emailID);
+
+ALTER TABLE customers ADD UNIQUE KEY (emailID);
+
+INSERT INTO `books` (`title`, `edition`, `author`, `publisher`, `genre`, `publicationYear`, `book_price`, `quantity`, `ebook_available`,`ebook_price`,`synopsis`) VALUES ('Wings of Fire','2','Universities Press','A P J Abdul Kalam, Arun Tiwari','Autobiography','1999',340,15,'Y',250,'In the autobiography, Dr. A.P.J. Kalam examines his early life, effort, hardship, fortitude, luck and chance that eventually led him to lead Indian space research, nuclear and missile programs. Kalam started his career, after graduating from Aerospace engineering at Madras Institute of Technology, at Hindustan Aeronautics Limited and was assigned to build a hovercraft prototype. Later he moved to ISRO and helped establish the Vikram Sarabhai Space Centre and pioneered the first space launch-vehicle program. ');
+
+INSERT INTO `books` (`title`, `edition`, `author`, `publisher`, `genre`, `publicationYear`, `book_price`, `quantity`, `ebook_available`,`ebook_price`,`synopsis`) VALUES ('G.K. 2023','3','Manohar Pandey','Divine Publishing', 'General Knowledge','2023',580,12,'N','','The newly updated edition of the book ‘General Knowledge’ has been carefully designed as per the latest syllabus and according to the needs of the students. Divided into 6 major sections, it gives a conceptual knowledge of subjects that are required for almost all competitive exams. Apart from theories of important subjects, the book is also supported with Current Affairs to give a glimpse of the events happening around the world. It is a one-stop solution for all the key competitive exams held in India.TOC Current Affairs, Indian History, Geography, Indian Polity, Indian Economy, General Science, General Knowledge');
+
+ALTER TABLE admins ADD COLUMN profilePic char(1) DEFAULT 'N';
+
+ALTER TABLE customers ADD COLUMN profilePic char(1) DEFAULT 'N';
+
+
+CREATE TABLE transactions
+(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    custID int,
+    custName varchar(40),
+    bookID int,
+    bookName varchar(50),
+    bookType ENUM ('book','eBook'),
+    quantity int
+);
+
+
+ALTER TABLE transactions add column cost int;
+
+ALTER TABLE transactions ADD COLUMN purchaseDate Date;
+
+ALTER TABLE transactions ADD COLUMN purchaseTime Time;
+
+ALTER TABLE transactions ADD COLUMN email varchar(50) AFTER custName;
+
+ALTER TABLE transactions ADD COLUMN mob char(10) AFTER email;
+
+
+CREATE TABLE ebooks (custID int NOT null, bookID int NOT null, PRIMARY KEY (custID, bookID));
+

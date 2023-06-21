@@ -1,0 +1,242 @@
+table,tr,td
+{
+    border-collapse: collapse;
+    border: 0px black solid;
+    width: 100%;
+    vertical-align: top;
+}
+
+#top-margin a:link
+{
+    text-decoration: none;
+    color: white;
+}
+
+#top-margin a:visited 
+{
+    color: white;
+}
+
+#top-margin a:hover
+{
+    background-color: #3589b6;
+    font-size: 125%;
+}
+
+#top-margin
+{
+    background-color: #3ca9e2;
+    height: 10px;
+    color: white;
+}
+
+#web-name
+{
+    font-family: "Sofia", sans-serif;
+    width: 40%;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 50px;
+    border-left: 0px;
+}
+
+.username
+{
+    font-family: "Sofia", sans-serif;
+    float: right;
+    margin-right: 15px;
+}
+
+#userImg img
+{
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.sidebar
+{
+    background-color: #3ca9e2;
+    color: white;
+    width: 17%;
+    margin-left: 5%;
+}
+
+.sidebar *
+{
+    margin-left: 5%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.sidebar a:link
+{
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:visited 
+{
+    color: white;
+}
+
+.sidebar div
+{
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 125%;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.sidebar div:hover
+{
+    background-color: #3589b6;
+}
+
+.main
+{
+    margin: 1.5%;
+}
+
+p
+{
+    text-align: justify;
+}
+
+form
+{
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #e3e4e4;
+    padding: 30px;
+}
+
+form input, select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+form input[type=submit]
+{
+    width: 100%;
+    background-color: #3ca9e2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 125%;
+}
+  
+form input[type=submit]:hover
+{
+    background-color: #329dd5;
+}
+  
+form div
+{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form textarea
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.profile
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 350px;
+    font-family: "Sofia", sans-serif;
+    font-size: 125%;
+}
+
+.signOut
+{
+    background-color: rgb(249, 73, 73);
+    font-size: 125%;
+    padding: 10px;
+}
+
+.signOut:hover
+{
+    background-color: rgb(197, 40, 40);
+    font-size: 125%;
+    color: white;
+}
+
+.page table
+{
+    width:90%;
+    margin-left: 50px;
+}
+.page table tr td
+{
+    border-collapse: collapse;
+    border: 0px black solid;
+}
+
+.page .bookImage
+{
+    width: 200px;
+}
+
+.page .bookImage Img
+{
+    width: 240px;
+    height: 340px;
+}
+
+.page .bookChar
+{
+    padding-left: 100px;
+}
+
+object
+{
+    width:1020px;
+    height: 500px;
+}
+
+.purchase, .purchase td, .purchase th
+{
+    border-collapse: collapse;
+    border: 2px groove;
+}
+.purchase td
+{
+    width: 50px;
+    text-align: center;
+}
+
+.btn
+{
+    font-size: 125%;
+    padding: 10px;
+    width: 250px;
+    background-color: #3ca9e2;
+}
+
+.btn:hover, .pdf:hover
+{
+    color: white;
+    background-color: #329dd5;
+}
+
